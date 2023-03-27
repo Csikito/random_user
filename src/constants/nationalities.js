@@ -1,0 +1,25 @@
+const NATIONALITIES = {
+  AU: "Australia",
+  BR: "Brazil",
+  CA: "Canada",
+  CH: "Switzerland",
+  DE: "Germany",
+  DK: "Denmark",
+  ES: "Spain",
+  FI: "Finland",
+  FR: "France",
+  GB: "United Kingdom",
+  IE: "Ireland",
+  IN: "India",
+  IR: "Iran",
+  MX: "Mexican",
+  NL: "Netherlands",
+  NO: "Norway",
+  NZ: "New Zealand",
+  RS: "Serbia",
+  TR: "Turkey",
+  UA: "Ukraine",
+  US: "United States",
+};
+
+export default NATIONALITIES;
