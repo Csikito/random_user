@@ -28,6 +28,11 @@
   font-size: 1rem;
 }
 
+.filter__buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .btn__add {
   margin-top: 1rem;
   padding: 0.5rem;
@@ -36,6 +41,10 @@
   background-color: rgb(94, 112, 128);
   box-shadow: 1px 1px 3px black;
   border-radius: 2px;
+}
+
+.btn__add:first-child {
+  color: red;
 }
 
 .btn__add i {

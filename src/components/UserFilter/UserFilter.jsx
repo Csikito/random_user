@@ -42,8 +42,8 @@ export default function UserFilter(props) {
         <label htmlFor="#">Gender: </label>
         <select className={formClassName}>
           <option>Any</option>
-          <option>Female</option>
-          <option>Male</option>
+          <option>female</option>
+          <option>male</option>
         </select>
       </div>
     );
@@ -57,6 +57,11 @@ export default function UserFilter(props) {
     props.handleMultipleFilter(length, nationality, gender);
   };
 
+  const deleteAllUser = (e) => {
+    e.preventDefault();
+    props.deleteUsers();
+  };
+
   return (
     <>
       <div className="filter__section">
@@ -66,14 +71,24 @@ export default function UserFilter(props) {
             {listGender("js-form-gender")}
             {listLength}
           </div>
-          <button
-            type="submit"
-            title="Add user/users"
-            onClick={addNewList}
-            className="btn__add"
-          >
-            <i class="ri-user-add-line"></i>
-          </button>
+          <div className="filter__buttons">
+            <button
+              type="submit"
+              title="Delete users"
+              onClick={deleteAllUser}
+              className="btn__add"
+            >
+              <i class="ri-user-unfollow-line"></i>
+            </button>
+            <button
+              type="submit"
+              title="Add user/users"
+              onClick={addNewList}
+              className="btn__add"
+            >
+              <i className="ri-user-add-line"></i>
+            </button>
+          </div>
         </form>
       </div>
     </>

@@ -16,6 +16,7 @@ export default function UserList() {
   };
 
   const usersFetch = (length = 1, nationality, gender) => {
+    console.log(length, nationality, gender);
     fetch(
       `https://randomuser.me/api/?results=${length}&gender=${gender}&nat=${nationality}`
     )
@@ -63,6 +64,10 @@ export default function UserList() {
     setUsers(newUserList);
   };
 
+  const deleteUsers = () => {
+    setUsers([]);
+  };
+
   const userData = users.map((user) => (
     <UserItem
       picture={user.picture}
@@ -87,7 +92,10 @@ export default function UserList() {
   return (
     <div>
       <div>
-        <UserFilter handleMultipleFilter={handleMultipleFilter} />
+        <UserFilter
+          handleMultipleFilter={handleMultipleFilter}
+          deleteUsers={deleteUsers}
+        />
       </div>
       <div className="users">{userData}</div>
     </div>
