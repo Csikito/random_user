@@ -17,6 +17,9 @@ export default function UserItem(props) {
   const handleDelete = (e) => {
     e.preventDefault();
     props.deleteUser(props.id);
+    if (editMode) {
+      props.changeDisable();
+    }
   };
 
   const handleChangeClose = (e) => {
@@ -80,7 +83,11 @@ export default function UserItem(props) {
   const editButton = () => {
     return (
       <div className="btn">
-        <button onClick={handleChangeEditMode} className="btn__edit">
+        <button
+          onClick={handleChangeEditMode}
+          className="btn__edit"
+          disabled={props.disabled}
+        >
           Edit
         </button>
       </div>

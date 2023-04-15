@@ -32,7 +32,7 @@ export default function UserList() {
             born: user.dob.date.slice(0, 10),
             gender: user.gender,
             nationality: NATIONALITIES[user.nat],
-            location: `${user.location.street.name}, ${user.location.city}`,
+            location: `${user.location.country},${user.location.city},${user.location.street.name}`,
             email: user.email,
             cell: user.cell,
             key: user.login.uuid,
