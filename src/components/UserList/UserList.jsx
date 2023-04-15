@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserItem from "../UserItem/UserItem";
 import NATIONALITIES from "../../constants/nationalities";
-import "./UserList.css";
+import UserFilter from "../UserFilter/UserFilter";
 
 export default function UserList() {
   const [users, setUsers] = useState([]);
@@ -15,13 +15,10 @@ export default function UserList() {
     setDisabled(!disabled);
   };
 
-  const handleClickAddMore = (e) => {
-    e.preventDefault();
-    usersFetch();
-  };
-
-  const usersFetch = () => {
-    fetch("https://randomuser.me/api/?results=1")
+  const usersFetch = (length = 1, nationality, gender) => {
+    fetch(
+      `https://randomuser.me/api/?results=${length}&gender=${gender}&nat=${nationality}`
+    )
       .then((resp) => resp.json())
       .then((respons) => {
         const data = respons.results;
@@ -42,6 +39,13 @@ export default function UserList() {
         });
         setUsers((oldUser) => [...oldUser, ...newUserList]);
       });
+  };
+
+  const handleMultipleFilter = (lengthOfNewUsersList, nationality, gender) => {
+    const getNationalityShortcut = Object.keys(NATIONALITIES).find(
+      (key) => NATIONALITIES[key] === nationality
+    );
+    usersFetch(lengthOfNewUsersList, getNationalityShortcut, gender);
   };
 
   const editElement = (id, editedDataKey, editedDataNewValue) => {
@@ -83,9 +87,7 @@ export default function UserList() {
   return (
     <div>
       <div>
-        <button onClick={handleClickAddMore} className="btn__add">
-          ADD MORE
-        </button>
+        <UserFilter handleMultipleFilter={handleMultipleFilter} />
       </div>
       <div className="users">{userData}</div>
     </div>
