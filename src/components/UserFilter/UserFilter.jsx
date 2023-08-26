@@ -78,7 +78,7 @@ export default function UserFilter(props) {
               onClick={deleteAllUser}
               className="btn__add"
             >
-              <i class="ri-user-unfollow-line"></i>
+              <i className="ri-user-unfollow-line"></i>
             </button>
             <button
               type="submit"

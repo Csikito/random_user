@@ -61,7 +61,6 @@ export default function UserItem(props) {
   };
 
   const validation = (item) => {
-    console.log(item);
     const labelElement = item.previousElementSibling;
     if (labelElement && [...labelElement.classList].includes("text-danger")) {
       item.previousElementSibling.classList.remove("text-danger");
@@ -70,7 +69,7 @@ export default function UserItem(props) {
     const itemValue = item.value.toString();
     const itemKey = item.dataset.key;
     const regex = new RegExp(VALIDATIONS[itemKey]);
-    console.log(regex.test(itemValue));
+
     if (!regex.test(itemValue)) {
       item.classList.add("is-invalid");
       if (labelElement) {

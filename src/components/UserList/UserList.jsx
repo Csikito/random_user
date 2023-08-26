@@ -16,7 +16,6 @@ export default function UserList() {
   };
 
   const usersFetch = (length = 1, nationality, gender) => {
-    console.log(length, nationality, gender);
     fetch(
       `https://randomuser.me/api/?results=${length}&gender=${gender}&nat=${nationality}`
     )
@@ -86,8 +85,6 @@ export default function UserList() {
       editElement={editElement}
     />
   ));
-
-  console.log(users);
 
   return (
     <div>
