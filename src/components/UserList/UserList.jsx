@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import UserItem from "../UserItem/UserItem";
 import NATIONALITIES from "../../constants/nationalities";
 import UserFilter from "../UserFilter/UserFilter";
+import "./UserList.css";
 
 export default function UserList() {
   const [users, setUsers] = useState([]);
@@ -88,7 +89,7 @@ export default function UserList() {
 
   return (
     <div>
-      <div>
+      <div className="user__list">
         <UserFilter
           handleMultipleFilter={handleMultipleFilter}
           deleteUsers={deleteUsers}

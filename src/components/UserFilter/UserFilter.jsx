@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import NATIONALITIES from "../../constants/nationalities";
 import getRandomKey from "../../constants/getRandomKey";
 import "./UserFilter.css";
 
 export default function UserFilter(props) {
+  const [active, setActive] = useState(false);
+
   const getListOfNationalities = Object.values(NATIONALITIES);
   const optionsListOfNationalities = getListOfNationalities.map(
     (nationality) => {
@@ -64,7 +66,7 @@ export default function UserFilter(props) {
 
   return (
     <>
-      <div className="filter__section">
+      <div className={`filter__section ${active && "active"}`}>
         <form action="#" className="filter__form">
           <div className="filter__data">
             {listNationality("js-form-nationality")}
@@ -80,6 +82,7 @@ export default function UserFilter(props) {
             >
               <i className="ri-user-unfollow-line"></i>
             </button>
+
             <button
               type="submit"
               title="Add user/users"
@@ -90,6 +93,12 @@ export default function UserFilter(props) {
             </button>
           </div>
         </form>
+        <p className={`arrow__down ${active && "active"}`}>
+          <i
+            className={`ri-arrow-down-s-fill `}
+            onClick={() => setActive(!active)}
+          ></i>
+        </p>
       </div>
     </>
   );

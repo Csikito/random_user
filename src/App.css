@@ -25,6 +25,7 @@ body {
 }
 
 .App-header {
+  position: relative;
   background-color: #282c34;
   height: 80px;
   display: flex;
@@ -33,6 +34,8 @@ body {
   justify-content: flex-start;
   font-size: 20px;
   color: white;
+
+  z-index: 2;
 }
 
 @keyframes App-logo-spin {
